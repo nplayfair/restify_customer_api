@@ -1,0 +1,30 @@
+{
+  "name": "restify_customer_api",
+  "version": "1.0.0",
+  "description": "a customer api using restify",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nplayfair/restify_customer_api.git"
+  },
+  "author": "nplayfair",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nplayfair/restify_customer_api/issues"
+  },
+  "homepage": "https://github.com/nplayfair/restify_customer_api#readme",
+  "dependencies": {
+    "mongoose": "^5.5.9",
+    "mongoose-timestamp": "^0.6.0",
+    "restify": "^8.3.2",
+    "restify-errors": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
