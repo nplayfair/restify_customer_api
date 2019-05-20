@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/nplayfair/restify_customer_api#readme",
   "dependencies": {
+    "dotenv": "^8.0.0",
     "mongoose": "^5.5.9",
     "mongoose-timestamp": "^0.6.0",
     "restify": "^8.3.2",
