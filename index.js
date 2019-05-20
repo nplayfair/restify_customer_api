@@ -10,6 +10,7 @@ dotenv.config();
 server.use(restify.plugins.bodyParser());
 
 server.listen(config.PORT, () => {
+  mongoose.set('useFindAndModify', false);
   mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 });
 
