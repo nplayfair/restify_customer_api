@@ -51,4 +51,20 @@ module.exports = server => {
       return next(new errors.InternalError(err.message));
     }
   });
+
+  // Update customer
+  server.put('/customers/:id', async (req, res, next) => {
+    // Check for JSON
+    if (!req.is('application/json')) {
+      return next(new errors.InvalidContentError("Expects 'application/json'"));
+    }
+
+    try {
+      const customer = await Customer.findOneAndUpdate({ _id: req.params.id }, req.body);
+      res.send(200);
+      next();
+    } catch(err) {
+      return next(new errors.ResourceNotFoundError(`No customer with id of ${req.params.id}`));
+    }
+  });
 }
