@@ -19,11 +19,14 @@
   },
   "homepage": "https://github.com/nplayfair/restify_customer_api#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^8.0.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.9",
     "mongoose-timestamp": "^0.6.0",
     "restify": "^8.3.2",
-    "restify-errors": "^8.0.0"
+    "restify-errors": "^8.0.0",
+    "restify-jwt-community": "^1.0.12"
   },
   "devDependencies": {
     "nodemon": "^1.19.0"
