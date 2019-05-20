@@ -10,7 +10,7 @@ dotenv.config();
 server.use(restify.plugins.bodyParser());
 
 server.listen(config.PORT, () => {
-  mongoose.connect(config.MONGODB_URI, {useNewUrlParser: true});
+  mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 });
 
 const db = mongoose.connection;
