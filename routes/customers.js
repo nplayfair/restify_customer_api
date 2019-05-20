@@ -1,5 +1,6 @@
 const errors    = require('restify-errors');
 const Customer  = require('../models/Customer'); 
+const rjwt      = require('restify-jwt-community');
 
 module.exports = server => {
   
@@ -28,7 +29,7 @@ module.exports = server => {
   });
   
   // Add customer
-  server.post('/customers', async (req, res, next) => {
+  server.post('/customers', rjwt({ secret: process.env.JWT_SECRET }), async (req, res, next) => {
     // Check for JSON
     if (!req.is('application/json')) {
       return next(new errors.InvalidContentError("Expects 'application/json'"));
@@ -53,7 +54,7 @@ module.exports = server => {
   });
 
   // Update customer
-  server.put('/customers/:id', async (req, res, next) => {
+  server.put('/customers/:id', rjwt({ secret: process.env.JWT_SECRET }), async (req, res, next) => {
     // Check for JSON
     if (!req.is('application/json')) {
       return next(new errors.InvalidContentError("Expects 'application/json'"));
@@ -69,7 +70,7 @@ module.exports = server => {
   });
 
   // Delete customer
-  server.del('/customers/:id', async (req, res, next) => {
+  server.del('/customers/:id', rjwt({ secret: process.env.JWT_SECRET }), async (req, res, next) => {
     try {
       const customer = await Customer.findOneAndRemove({ _id: req.params.id });
       res.send(204);

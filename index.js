@@ -11,7 +11,7 @@ dotenv.config();
 server.use(restify.plugins.bodyParser());
 
 // Protect routes
-server.use(rjwt({ secret: process.env.JWT_SECRET }).unless({ path: ['/auth']}));
+// server.use(rjwt({ secret: process.env.JWT_SECRET }).unless({ path: ['/auth']}));
 
 server.listen(config.PORT, () => {
   mongoose.set('useFindAndModify', false);
