@@ -15,6 +15,18 @@ module.exports = server => {
     }
   });
 
+  // Get single customer
+  server.get('/customers/:id', async (req, res, next) => {
+    try {
+      const customer = await Customer.findById(req.params.id);
+      res.send(customer);
+      next();
+    }
+    catch(err) {
+      return next(new errors.ResourceNotFoundError(`No customer with id of ${req.params.id}`));
+    }
+  });
+  
   // Add customer
   server.post('/customers', async (req, res, next) => {
     // Check for JSON
