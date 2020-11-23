@@ -1,7 +1,7 @@
 const errors  = require('restify-errors');
 const bcrypt  = require('bcryptjs');
 const jwt     = require('jsonwebtoken');
-const dotenv    = require('dotenv');
+const dotenv  = require('dotenv');
 const User    = require('../models/User');
 const auth    = require('../auth');
 
